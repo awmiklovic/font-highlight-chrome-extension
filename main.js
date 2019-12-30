@@ -11,7 +11,14 @@ elementArray = Array.from(elementArray).filter(el => {
     return hasText;
 });
 
-const colorArray = ['#ff0000', '#00ff00', '#0000ff', '#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075', '#808080'];
+// https://www.color-hex.com/color-palette/86223
+const colorArray = [
+    '#4085c6',
+    '#f04f45',
+    '#000000',
+    '#143656',
+    '#c7c7c7',
+];
 
 const uniqueFamilySet = new Set();
 
@@ -32,7 +39,7 @@ elementArray.forEach(element => {
     const size = computedStyle.getPropertyValue('font-size');
     const weight = computedStyle.getPropertyValue('font-weight');
     const style = computedStyle.getPropertyValue('font-style');
-    const colorIdx = Array.from(uniqueFamilySet).indexOf(family);
+    const colorIdx = Array.from(uniqueFamilySet).indexOf(family) - 1;
 
     element.style.color = colorArray[colorIdx];
     // Tooltips don't work on disabled buttons.
