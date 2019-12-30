@@ -2,9 +2,10 @@ let elementArray = document.querySelectorAll('*');
 elementArray = Array.from(elementArray).filter(el => {
     // We want to know if this level has text
     let hasText = false;
+    // childNodes includes textNodes and commentNodes
+    // as opposed to .children which only returns elementNodes
     Array.from(el.childNodes).forEach((child) => {
-        console.log(child);
-        console.log(child.nodeType);
+        // nodeType: 3 is a textNode
         if (child.nodeType === 3) hasText = true;
     });
     return hasText;
